@@ -1,16 +1,14 @@
-import tracks from "../data/tracks.js";
-
-const SongInfo = () => {
+const SongInfo = ({ currentTrack }) => {
     return (
         <div className="flex justify-center mt-7">
             <div>
                 <img
-                    src={tracks[1].thumbnail}
+                    src={currentTrack.thumbnail}
                     alt=""
                     className="size-96 object-cover shadow-xl rounded"
                 />
                 <p>
-                    {tracks[1].artist} - {tracks[1].title}
+                    {currentTrack.artist} - {currentTrack.title}
                 </p>
             </div>
         </div>
