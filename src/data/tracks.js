@@ -5,6 +5,7 @@ import slowdancing from "./tracks/Slow Dancing In a Burning Room- John Mayer (Wi
 
 import thegardenofwords from "./img/thegardenofwords.jpg";
 import raw_thumbnail from "./img/Raw.png";
+import continuum_album_cover from "./img/continuum_album_cover.jpg";
 
 const tracks = [
     {
@@ -30,6 +31,7 @@ const tracks = [
     {
         title: "Slow Dancing in a Burning Room",
         src: slowdancing,
+        thumbnail: continuum_album_cover,
         artist: "John Mayer",
         id: "4",
     },

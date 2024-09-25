@@ -4,13 +4,23 @@ import SongInfo from "./SongInfo";
 import Controls from "./Controls";
 
 const Player = () => {
-    const [currentTrack, setCurrentTrack] = useState(tracks[1]);
+    const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+    const numTracks = tracks.length;
+    const [currentTrack, setCurrentTrack] = useState(tracks[currentTrackIndex]);
 
-    const audioRef = useRef();
+    const audioRef = useRef(0);
     return (
         <section className="bg-blue-500 w-2/5">
             <SongInfo currentTrack={currentTrack} />
-            <Controls currentTrack={currentTrack} audioRef={audioRef} />
+            <Controls
+                tracks={tracks}
+                currentTrack={currentTrack}
+                setCurrentTrack={setCurrentTrack}
+                currentTrackIndex={currentTrackIndex}
+                setCurrentTrackIndex={setCurrentTrackIndex}
+                numTracks={numTracks}
+                audioRef={audioRef}
+            />
         </section>
     );
 };
