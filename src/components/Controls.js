@@ -95,7 +95,6 @@ const Controls = ({
             <Stack className="w-96">
                 <ProgressBar isPlaying={isPlaying} audioRef={audioRef} />
                 <div className="buttons flex justify-between mt-3">
-                    {currentTrackIndex}
                     <Button className="text-gray-50" onClick={toggleShuffle}>
                         {shuffleOn ? <ShuffleOn /> : <Shuffle />}
                     </Button>
