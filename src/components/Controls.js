@@ -11,6 +11,7 @@ import {
     RepeatOn,
 } from "@mui/icons-material";
 import ProgressBar from "./ProgressBar";
+import VolumeSlider from "./VolumeSlider";
 
 const Controls = ({
     tracks,
@@ -111,6 +112,7 @@ const Controls = ({
                         {repeatOn ? <RepeatOn /> : <Repeat />}
                     </Button>
                 </div>
+                <VolumeSlider audioRef={audioRef} />
             </Stack>
         </div>
     );
