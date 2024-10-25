@@ -7,7 +7,7 @@ const VolumeSlider = ({ audioRef }) => {
     };
 
     return (
-        <div className="info basis-1/3 flex justify-start relative ">
+        <div className="info basis-1/3 flex justify-start relative">
             <Stack
                 spacing={2}
                 direction="row"
@@ -15,7 +15,11 @@ const VolumeSlider = ({ audioRef }) => {
                 className="w-96"
             >
                 <VolumeDown />
-                <Slider onChange={handleChange} defaultValue={100} />
+                <Slider
+                    size="small"
+                    onChange={handleChange}
+                    defaultValue={100}
+                />
                 <VolumeUp />
             </Stack>
         </div>
