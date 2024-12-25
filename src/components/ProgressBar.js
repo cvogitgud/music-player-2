@@ -3,7 +3,6 @@ import { Slider } from "@mui/material/";
 
 const ProgressBar = ({ isPlaying, audioRef }) => {
     const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
     const [progress, setProgress] = useState(0);
 
     // dynamic progress bar
@@ -13,10 +12,12 @@ const ProgressBar = ({ isPlaying, audioRef }) => {
     const repeat = useCallback(() => {
         const currentTime = audioRef.current.currentTime;
         setCurrentTime(currentTime);
-        progressBarRef.current.value = progress;
-        //console.log(progress);
+        progressBarRef.current.value =
+            (currentTime / audioRef.current.duration) * 100;
+        setProgress((currentTime / audioRef.current.duration) * 100);
+        console.log(progressBarRef.current.value);
         playAnimationRef.current = requestAnimationFrame(repeat);
-    }, [audioRef, progress]);
+    }, [audioRef, progressBarRef, setCurrentTime]);
 
     useEffect(() => {
         if (isPlaying) {
@@ -28,7 +29,6 @@ const ProgressBar = ({ isPlaying, audioRef }) => {
     }, [isPlaying, audioRef, repeat]);
 
     const handleProgressChange = (event, value) => {
-        console.log(value);
         setProgress(value);
         audioRef.current.currentTime =
             (progress / 100) * audioRef.current.duration;
@@ -51,6 +51,7 @@ const ProgressBar = ({ isPlaying, audioRef }) => {
             <Slider
                 size="small"
                 defaultValue={0}
+                value={progress || 0}
                 ref={progressBarRef}
                 onChange={handleProgressChange}
                 className="w-96 flex justify-center flex-col"
